@@ -3,6 +3,7 @@ import discord
 from discord import Webhook, AllowedMentions
 import aiohttp 
 import os 
+
 async def anything(url):
     async with aiohttp.ClientSession() as session:
         webhook = Webhook.from_url(url, session=session)
