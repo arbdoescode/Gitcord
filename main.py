@@ -1,7 +1,14 @@
 import asyncio
+import githubcommit
 
 async def main():
-    print("test")
+    repo_owner = "arbdoescode"
+    repo_name = "Gitcord"
+
+    raw_commits =  githubcommit.fetch_commits(repo_owner, repo_name)
+    formatted_commits = githubcommit.format_commits(raw_commits)
+
+    print(formatted_commits)
 
 
 if __name__ == "__main__":

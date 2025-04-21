@@ -17,16 +17,7 @@ def format_commits(commit_data):
             "author": item["commit"]["author"]["name"],
             "time": item["commit"]["author"]["date"],
             "sha": item["sha"],
-            "message": item["commit"]["message"]
+            "message": item["commit"]["message"].split("\n")[0]
         }
         formatted.append(commit_info)
     return formatted
-
-# Usage
-repo_owner = "arbdoescode"
-repo_name = "Gitcord"
-
-raw_commits = fetch_commits(repo_owner, repo_name)
-formatted_commits = format_commits(raw_commits)
-
-print(formatted_commits)
