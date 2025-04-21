@@ -7,8 +7,10 @@ def fetch_commits(repo_owner, repo_name):
     if response.status_code == 200:
         return response.json()  # parsed JSON
     else:
-        print(f"Failed to fetch commits: {response.status_code}")
+        print(f"Failed to fetch commitsss: {response.status_code}")
         return []
+
+
 
 def format_commits(commit_data):
     formatted = []
