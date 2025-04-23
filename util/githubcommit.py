@@ -1,5 +1,6 @@
 import requests
 import json
+import asyncio
 
 def fetch_commits(repo_owner, repo_name):
     url = f'https://api.github.com/repos/{repo_owner}/{repo_name}/commits'

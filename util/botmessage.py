@@ -1,11 +1,12 @@
-import os
-import asyncio
-from dotenv import load_dotenv
-import aiohttp
-import discord
+import asyncio 
+import discord 
 from discord import Webhook, AllowedMentions
+import aiohttp 
+import os 
+from dotenv import load_dotenv
 
-async def sendSimpleMessage(url, msg):
+
+async def sendSimpleMessage(url,msg):
     async with aiohttp.ClientSession() as session:
         webhook = Webhook.from_url(url, session=session)
         embed = discord.Embed(description=msg)

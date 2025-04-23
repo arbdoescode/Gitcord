@@ -15,14 +15,16 @@ async def root(background_tasks: BackgroundTasks):
     return {"message": "Hello Worlddd"}
 
 @app.get("/push/")
-async def other_call():
+async def push_call():
     asyncio.create_task(botmessage.fetchsendwebhook())
 
 @app.get("/commitlist/")
-async def other_call():
+async def commitlist_call():
     repo_owner = "arbdoescode"
     repo_name = "Gitcord"
 
     raw_commits =  githubcommit.fetch_commits(repo_owner, repo_name)
     formatted_commits = githubcommit.format_commits(raw_commits)
+    print(formatted_commits)
     return formatted_commits
+
