@@ -1,6 +1,6 @@
 import asyncio
 from fastapi import FastAPI, BackgroundTasks
-from util import botmessage
+from util import botmessage,githubcommit
 
 app = FastAPI()
 
@@ -18,3 +18,11 @@ async def root(background_tasks: BackgroundTasks):
 async def other_call():
     asyncio.create_task(botmessage.fetchsendwebhook())
 
+@app.get("/commitlist/")
+async def other_call():
+    repo_owner = "arbdoescode"
+    repo_name = "Gitcord"
+
+    raw_commits =  githubcommit.fetch_commits(repo_owner, repo_name)
+    formatted_commits = githubcommit.format_commits(raw_commits)
+    return formatted_commits
