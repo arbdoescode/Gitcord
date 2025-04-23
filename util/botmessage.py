@@ -6,17 +6,17 @@ import os
 from dotenv import load_dotenv
 
 
-async def anything(url):
+async def sendSimpleMessage(url,msg):
     async with aiohttp.ClientSession() as session:
         webhook = Webhook.from_url(url, session=session)
-        embed = discord.Embed(description="This is for employee of the month <@881907187247636582> ")
+        embed = discord.Embed(description=msg)
         await webhook.send(
             embed=embed,
             username="Road Maintainer",
             allowed_mentions=AllowedMentions(users=True)
         )
-        
-if __name__ == "__main__":
+
+def fetchsendwebhook():
     load_dotenv()
     url = os.getenv("BOT_WEBHOOK")
 
@@ -24,5 +24,5 @@ if __name__ == "__main__":
         raise RuntimeError("BOT_WEBHOOK environment variable is not set.")
     
     loop = asyncio.new_event_loop()
-    loop.run_until_complete(anything(url))
+    loop.run_until_complete(sendSimpleMessage(url))
     loop.close()

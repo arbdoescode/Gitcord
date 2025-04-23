@@ -1,5 +1,5 @@
 import asyncio
-import githubcommit
+import util.githubcommit as githubcommit
 
 async def main():
     repo_owner = "arbdoescode"

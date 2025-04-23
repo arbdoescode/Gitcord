@@ -1,0 +1,6 @@
+fastapi[all]
+asyncio
+datetime
+Pyrebase4>=4.7,<5.0
+pydantic>=1.10,<2.0
+requests>=2.19.1,<2.30
