@@ -24,5 +24,5 @@ def fetchsendwebhook():
         raise RuntimeError("BOT_WEBHOOK environment variable is not set.")
     
     loop = asyncio.new_event_loop()
-    loop.run_until_complete(sendSimpleMessage(url))
+    loop.run_until_complete(sendSimpleMessage(url,"test"))
     loop.close()
