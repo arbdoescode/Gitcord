@@ -1,12 +1,11 @@
-import asyncio 
-import discord 
-from discord import Webhook, AllowedMentions
-import aiohttp 
-import os 
+import os
+import asyncio
 from dotenv import load_dotenv
+import aiohttp
+import discord
+from discord import Webhook, AllowedMentions
 
-
-async def sendSimpleMessage(url,msg):
+async def sendSimpleMessage(url, msg):
     async with aiohttp.ClientSession() as session:
         webhook = Webhook.from_url(url, session=session)
         embed = discord.Embed(description=msg)
@@ -23,6 +22,5 @@ async def fetchsendwebhook():
     if not url:
         raise RuntimeError("BOT_WEBHOOK environment variable is not set.")
     
-    loop = asyncio.new_event_loop()
-    loop.run_until_complete(sendSimpleMessage(url,"test"))
-    loop.close()
+    await sendSimpleMessage(url, "test")
+

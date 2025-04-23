@@ -17,3 +17,4 @@ async def root(background_tasks: BackgroundTasks):
 @app.get("/push/")
 async def other_call():
     asyncio.create_task(botmessage.fetchsendwebhook())
+
