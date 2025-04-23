@@ -16,7 +16,7 @@ async def sendSimpleMessage(url,msg):
             allowed_mentions=AllowedMentions(users=True)
         )
 
-def fetchsendwebhook():
+async def fetchsendwebhook():
     load_dotenv()
     url = os.getenv("BOT_WEBHOOK")
 

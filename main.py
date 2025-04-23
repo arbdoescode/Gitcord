@@ -4,8 +4,8 @@ from util import botmessage
 
 app = FastAPI()
 
-@app.on_event("push")
-async def push_event():
+@app.on_event("startup")
+async def startup_event():
     asyncio.create_task(botmessage.fetchsendwebhook())
 
 
