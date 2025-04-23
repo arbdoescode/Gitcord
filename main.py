@@ -6,7 +6,7 @@ app = FastAPI()
 
 @app.on_event("startup")
 async def startup_event():
-    asyncio.create_task(botmessage.fetchsendwebhook())
+    asyncio.create_task(botmessage.fetchsendwebhook("Api Deployed Succesfully"))
 
 
 @app.get("/")
@@ -16,7 +16,7 @@ async def root(background_tasks: BackgroundTasks):
 
 @app.get("/push/")
 async def push_call():
-    asyncio.create_task(botmessage.fetchsendwebhook())
+    asyncio.create_task(botmessage.fetchsendwebhook("Test push"))
 
 @app.get("/commitlist/")
 async def commitlist_call():

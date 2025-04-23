@@ -16,12 +16,12 @@ async def sendSimpleMessage(url,msg):
             allowed_mentions=AllowedMentions(users=True)
         )
 
-async def fetchsendwebhook():
+async def fetchsendwebhook(msg):
     load_dotenv()
     url = os.getenv("BOT_WEBHOOK")
 
     if not url:
         raise RuntimeError("BOT_WEBHOOK environment variable is not set.")
     
-    await sendSimpleMessage(url, "test")
+    await sendSimpleMessage(url, msg)
 
