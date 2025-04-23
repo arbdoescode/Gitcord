@@ -13,3 +13,7 @@ async def startup_event():
 async def root(background_tasks: BackgroundTasks):
     background_tasks.add_task(lambda: None)
     return {"message": "Hello Worlddd"}
+
+@app.get("/push/")
+async def other_call():
+    asyncio.create_task(botmessage.fetchsendwebhook())
