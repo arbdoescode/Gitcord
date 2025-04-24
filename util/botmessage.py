@@ -2,7 +2,6 @@ import asyncio
 import discord 
 from discord import Webhook, AllowedMentions
 import aiohttp 
-import json
 import os 
 from dotenv import load_dotenv
 from datetime import datetime
@@ -53,8 +52,7 @@ async def fetchsendwebhook(item: webhookreq.PushWebhook):
     url = os.getenv("BOT_WEBHOOK")
 
     user_test_raw = os.getenv("USER_TEST")
-    user_test =  json.loads(user_test_raw) 
-    user_dict = {name: id_num for name, id_num in user_test}
+    user_dict = dict(pair.split(":") for pair in user_test_raw.split(","))
     query = item.pusher.name
     pushername = item.pusher.name
     if query in user_dict:
