@@ -7,7 +7,6 @@ app = FastAPI()
 @app.on_event("startup")
 async def startup_event():
     asyncio.create_task(botmessage.fetchsendmsg("Api Deployed Succesfully"))
-    return {"message": "Hello Worlddd"}
 
 
 
@@ -31,6 +30,6 @@ async def commitlist_call():
     return formatted_commits
 
 @app.post("/botpushreminder/")
-async def botpushreminde_call(item: webhookreq.PushWebhook):
+async def botpush_call(item: webhookreq.PushWebhook):
     asyncio.create_task(botmessage.fetchsendwebhook(item))
     return item
