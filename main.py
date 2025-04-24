@@ -31,6 +31,6 @@ async def commitlist_call():
     return formatted_commits
 
 @app.post("/botpushreminder/")
-async def create_item(item: webhookreq.PushWebhook):
+async def botpushreminde_call(item: webhookreq.PushWebhook):
     asyncio.create_task(botmessage.fetchsendwebhook(item))
     return item
