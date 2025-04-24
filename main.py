@@ -1,12 +1,14 @@
 import asyncio
 from fastapi import FastAPI, BackgroundTasks
 from util import botmessage,githubcommit
-
+from model import webhookreq
 app = FastAPI()
 
 @app.on_event("startup")
 async def startup_event():
-    asyncio.create_task(botmessage.fetchsendwebhook("Api Deployed Succesfully"))
+    asyncio.create_task(botmessage.fetchsendmsg("Api Deployed Succesfully"))
+    return {"message": "Hello Worlddd"}
+
 
 
 @app.get("/")
@@ -16,7 +18,7 @@ async def root(background_tasks: BackgroundTasks):
 
 @app.get("/push/")
 async def push_call():
-    asyncio.create_task(botmessage.fetchsendwebhook("Test push"))
+    asyncio.create_task(botmessage.fetchsendmsg("Test push"))
 
 @app.get("/commitlist/")
 async def commitlist_call():
@@ -28,3 +30,7 @@ async def commitlist_call():
     print(formatted_commits)
     return formatted_commits
 
+@app.post("/botpushreminder/")
+async def create_item(item: webhookreq.PushWebhook):
+    asyncio.create_task(botmessage.fetchsendwebhook(item))
+    return item
