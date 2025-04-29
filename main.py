@@ -6,7 +6,8 @@ app = FastAPI()
 
 @app.on_event("startup")
 async def startup_event():
-    asyncio.create_task(botmessage.fetchsendmsg("Api Deployed Succesfully"))
+    # asyncio.create_task(botmessage.fetchsendmsg("Api Deployed Succesfully"))
+    return {"message": "Hello Worlddd again"}
 
 
 
