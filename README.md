@@ -82,3 +82,44 @@ You can deploy GitCord to any platform that supports Python and FastAPI, such as
 ```bash
 uvicorn main:app --host 0.0.0.0 --port 8000
 ```
+4. Add all environment variables from your `.env` file to your hosting provider’s environment settings  
+5. Deploy 🚀  
+
+---
+
+## 🔗 GitHub Webhook Setup
+
+1. Go to your GitHub repository  
+2. Navigate to **Settings → Webhooks → Add Webhook**  
+3. Set the Payload URL to:
+
+`https://your-domain.com/webhook`
+
+4. Select `application/json`  
+5. Add your webhook secret (must match your `.env` value)  
+6. Choose which events to send (e.g., push, pull request)  
+7. Save  
+
+---
+
+## 🔒 Security Notes
+
+- ❌ Never commit your `.env` file  
+- 🔐 Always use strong webhook secrets  
+- 🤖 Keep your Discord bot token private  
+
+---
+
+## 🛠 Tech Stack
+
+- Python 3.10+  
+- FastAPI  
+- Uvicorn  
+- Discord Webhooks  
+- GitHub Webhooks  
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
