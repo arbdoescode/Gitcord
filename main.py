@@ -14,7 +14,7 @@ async def startup_event():
 @app.get("/")
 async def root(background_tasks: BackgroundTasks):
     background_tasks.add_task(lambda: None)
-    return {"message": "Hello Worlddd"}
+    return {"message": "Hello World, did u miss me"}
 
 @app.get("/push/")
 async def push_call():
